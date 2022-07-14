@@ -18,6 +18,7 @@ namespace ezCloud.SignalR
         private string _user;
         private string _password;
         IHubContext<SignalRHub> _hubContext;
+
         public RabbitMQReceiverService(IConfiguration configuration, IHubContext<SignalRHub> hubContext)
         {
             _hubContext = hubContext;
@@ -72,7 +73,7 @@ namespace ezCloud.SignalR
     public class MessageArgs
     {
         [JsonProperty("hotelId")]
-        public string? HotelId { get; set; }
+        public string HotelId { get; set; }
         [JsonProperty("sender")]
         public string? Sender { get; set; }
         [JsonProperty("message")]

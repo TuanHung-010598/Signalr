@@ -5,6 +5,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 
 builder.Services.AddRazorPages();
+
 builder.Services.AddSignalR()
     .AddStackExchangeRedis(builder.Configuration.GetSection("Redis")["Connection"], configuration =>
     {
@@ -13,6 +14,7 @@ builder.Services.AddSignalR()
     });
 
 builder.Services.AddHostedService<RabbitMQReceiverService>();
+
 builder.Services.AddCors(options =>
 {
     options.AddDefaultPolicy(
